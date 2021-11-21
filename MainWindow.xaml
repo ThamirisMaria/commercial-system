@@ -1,0 +1,64 @@
+﻿<Window x:Class="SistemaVendas.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SistemaVendas"
+        mc:Ignorable="d"
+        Title="Pizza Menager" Height="650" Width="984" Background="#A80F2B"
+        WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="230"/>
+            <ColumnDefinition Width="754"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="160"/>
+            <RowDefinition Height="160"/>
+            <RowDefinition Height="276"/>
+        </Grid.RowDefinitions>
+        <StackPanel x:Name="Menu" Width="230" VerticalAlignment="Stretch" Background="#2C2C2C"
+                    Grid.RowSpan="3" Margin="0,0,0,-20">
+            <Image Source="Imagens/Logo.png" Height="222" Width="222"/>
+            <Border Background="#2FF553" Width="192" BorderThickness="1" CornerRadius="5" Margin="0 0 0 30">
+                <Button x:Name="clientes_menu_btn" Height="41" Width="180" Background="#2FF553" BorderThickness="0"
+                        Content="Clientes" Foreground="#FFF" FontSize="25" FontWeight="bold" FontFamily="Roboto"
+                        Cursor="Hand"/>
+            </Border>
+            <Border Background="#2FF553" Width="192" BorderThickness="1" CornerRadius="5" Margin="0 0 0 30">
+                <Button x:Name="funcionarios_menu_btn" Height="41" Width="180" Background="#2FF553" BorderThickness="0"
+                        Content="Funcionários" Foreground="#FFF" FontSize="25" FontWeight="bold" FontFamily="Roboto"
+                        Cursor="Hand"/>
+            </Border>
+            <Border Background="#2FF553" Width="192" BorderThickness="1" CornerRadius="5" Margin="0 0 0 30">
+                <Button x:Name="produtos_menu_btn" Height="41" Width="180" Background="#2FF553" BorderThickness="0"
+                        Content="Produtos" Foreground="#FFF" FontSize="25" FontWeight="bold" FontFamily="Roboto"
+                        Cursor="Hand"/>
+            </Border>
+            <Border Background="#2FF553" Width="192" BorderThickness="1" CornerRadius="5" Margin="0 0 0 30">
+                <Button x:Name="vendas_menu_btn" Height="41" Width="180" Background="#2FF553" BorderThickness="0"
+                        Content="Vendas" Foreground="#FFF" FontSize="25" FontWeight="bold" FontFamily="Roboto"
+                        Cursor="Hand"/>
+            </Border>
+            <Border Background="#2FF553" Width="192" BorderThickness="1" CornerRadius="5">
+                <Button x:Name="usuarios_menu_btn" Height="41" Width="180" Background="#2FF553" BorderThickness="0"
+                        Content="Usuários" Foreground="#FFF" FontSize="25" FontWeight="bold" FontFamily="Roboto"
+                        Cursor="Hand"/>
+            </Border>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="0" Height="160" HorizontalAlignment="Stretch">
+            <Border Background="#00A81F" Height="40" Width="299" BorderThickness="1" CornerRadius="5" Margin="30 0 0 0">
+                <Button x:Name="cadastros_btn" Content="Cadastros" Width="278" Height="40" Background="#00A81F" BorderThickness="0"
+                        Foreground="#FFF" FontSize="25" FontWeight="SemiBold" FontFamily="Roboto"
+                        Cursor="Hand"/>
+            </Border>
+            <Border Background="#00A81F" Height="40" Width="299" BorderThickness="1" CornerRadius="5" Margin="90 0 0 0">
+                <Button x:Name="vendas_btn" Content="Vendas" Width="278" Height="40" Background="#00A81F" BorderThickness="0"
+                        Foreground="#FFF" FontSize="25" FontWeight="SemiBold" FontFamily="Roboto"
+                        Cursor="Hand"/>
+            </Border>
+            
+        </StackPanel>
+        <Image Source="Imagens/Logo-isolated.png" Grid.Column="2" Grid.RowSpan="2" Grid.Row="1"/>
+    </Grid>
+</Window>
