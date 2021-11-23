@@ -11,6 +11,11 @@ namespace SistemaVendas.Models
     class ClienteDAO : IDAO<Cliente>
     {
         private static Conexao conexao;
+        
+        public ClienteDAO()
+        {
+            conexao = new Conexao();
+        }
 
         public void Delete(Cliente t)
         {
