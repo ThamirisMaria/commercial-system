@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,7 +30,30 @@ namespace SistemaVendas.Models
 
         public void Insert(Produto t)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var query = conexao.Query();
+                query.CommandText = "INSERT INTO produto (nome_prod, descricao_prod, marca_prod, valor_venda_prod) " +
+                    "VALUES (@nome, @descricao, @marca, @valorVenda)";
+
+                query.Parameters.AddWithValue("@nome", t.Nome);
+                query.Parameters.AddWithValue("@descricao", t.Descricao);
+                query.Parameters.AddWithValue("@marca", t.Marca);
+                query.Parameters.AddWithValue("@valorVenda", t.ValorVenda);
+
+                var linhasAfetadas = query.ExecuteNonQuery();
+
+                if (linhasAfetadas == 0)
+                    throw new Exception("Registro não efetuado. Verifique e tente novamente.");
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conexao.Close();
+            }
         }
 
         public List<Produto> List()
