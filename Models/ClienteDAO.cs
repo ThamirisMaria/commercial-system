@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -62,7 +62,40 @@ namespace SistemaVendas.Models
 
         public List<Cliente> List()
         {
-            throw new NotImplementedException();
+            try
+            {
+                List<Cliente> list = new List<Cliente>();
+
+                var query = conexao.Query();
+                query.CommandText = "SELECT * FROM cliente LEFT JOIN sexo ON cod_sex = cod_sex_fk";
+
+                MySqlDataReader reader = query.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    list.Add(new Cliente()
+                    {
+                        Id = reader.GetInt32("cod_cli"),
+                        Nome = reader.GetString("nome_cli"),
+                        CPF = reader.GetString("cpf_cli"),
+                        RG = reader.GetString("rg_cli"),
+                        DataNascimento = reader.GetDateTime("datanasc_cli"),
+                        Celular = reader.GetString("telefone_celular_cli"),
+                        Email = reader.GetString("email_cli"),
+                        Sexo = new Sexo() { Id = reader.GetInt32("cod_sex"), Nome = reader.GetString("nome_sex") }
+                    });
+                }
+
+                return list;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conexao.Close();
+            }
         }
 
         public void Update(Cliente t)
