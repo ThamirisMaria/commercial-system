@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -58,7 +58,37 @@ namespace SistemaVendas.Models
 
         public List<Produto> List()
         {
-            throw new NotImplementedException();
+            try
+            {
+                List<Produto> list = new List<Produto>();
+
+                var query = conexao.Query();
+                query.CommandText = "SELECT * FROM produto";
+
+                MySqlDataReader reader = query.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    list.Add(new Produto()
+                    {
+                        Id = reader.GetInt32("cod_prod"),
+                        Nome = reader.GetString("nome_prod"),
+                        Descricao = reader.GetString("descricao_prod"),
+                        Marca = reader.GetString("marca_prod"),
+                        ValorVenda = reader.GetDouble("valor_venda_prod")
+                    });
+                }
+
+                return list;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conexao.Close();
+            }
         }
 
         public void Update(Produto t)
