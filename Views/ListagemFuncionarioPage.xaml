@@ -1,0 +1,50 @@
+﻿<Page x:Class="SistemaVendas.Views.ListagemFuncionarioPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SistemaVendas.Views"
+      mc:Ignorable="d"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ListagemFuncionarioPage" Width="754" Height="650" Background="#FF4A6B">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Listagem De Funcionários" FontSize="25" FontFamily="Roboto" Foreground="White" FontWeight="Bold"
+                   Height="29" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="30"/>
+        
+        <DataGrid Grid.Row="1" Margin="20,0,35,70" x:Name="dataGrid" IsReadOnly="true"
+                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Grid.ColumnSpan="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Nome do Funcionário" Binding="{Binding Nome}"/>
+                <DataGridTextColumn Header="Sexo" Binding="{Binding Sexo.Nome}"/>
+                <DataGridTextColumn Header="CPF" Binding="{Binding CPF}"/>
+                <DataGridTextColumn Header="E-mail" Binding="{Binding Email}"/>
+                <DataGridTextColumn Header="Celular" Binding="{Binding Celular}"/>
+                <DataGridTextColumn Header="Função" Binding="{Binding Funcao}"/>
+                <DataGridTextColumn Header="Salário" Binding="{Binding Salario, ConverterCulture='pt-BR', StringFormat=C}"/>
+
+                <DataGridTemplateColumn Header="Ações">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Style="{StaticResource MaterialDesignIconForegroundButton}" 
+                                        Content="{materialDesign:PackIcon Eye}"
+                                        ToolTip="Visualizar Registro" Margin="0 0 5 0" Click="Button_Update_Click" />
+                                <Button Style="{StaticResource MaterialDesignIconForegroundButton}" 
+                                        Content="{materialDesign:PackIcon Delete}"
+                                        ToolTip="Excluir Registro" Click="Button_Delete_Click" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>
