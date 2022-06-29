@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +11,13 @@ namespace SistemaVendas.Models
 {
     class SexoDAO : IDAO<Sexo>
     {
+        private static Conexao conexao;
+
+        public SexoDAO()
+        {
+            conexao = new Conexao();
+        }
+
         public void Delete(Sexo t)
         {
             throw new NotImplementedException();
