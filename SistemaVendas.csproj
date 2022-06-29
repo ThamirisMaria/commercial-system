@@ -98,6 +98,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Views\CadastroClientePage.xaml.cs">
+      <DependentUpon>CadastroClientePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CadastroFuncionarioPage.xaml.cs">
       <DependentUpon>CadastroFuncionarioPage.xaml</DependentUpon>
     </Compile>
@@ -127,6 +130,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\CadastroClientePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CadastroFuncionarioPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
