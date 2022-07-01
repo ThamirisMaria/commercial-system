@@ -113,6 +113,9 @@
     <Compile Include="Views\EdicaoFuncionarioWindow.xaml.cs">
       <DependentUpon>EdicaoFuncionarioWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\EdicaoProdutoWindow.xaml.cs">
+      <DependentUpon>EdicaoProdutoWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\FuncionarioWindow.xaml.cs">
       <DependentUpon>FuncionarioWindow.xaml</DependentUpon>
     </Compile>

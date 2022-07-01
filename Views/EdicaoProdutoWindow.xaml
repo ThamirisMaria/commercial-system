@@ -1,0 +1,64 @@
+﻿<Window x:Class="SistemaVendas.Views.EdicaoProdutoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SistemaVendas.Views"
+        mc:Ignorable="d"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="EdicaoProdutoWindow" Width="754" Height="650" Background="#FF4A6B" WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="520"/>
+            <RowDefinition Height="130"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Atualizar Produto" FontSize="25" FontFamily="Roboto" Foreground="White" FontWeight="Bold"
+                   Height="29" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="244,20,244,0"/>
+        <TextBlock Text="Dados Do Produto" FontSize="20" FontFamily="Roboto" Foreground="White" FontWeight="Bold"
+                   Height="23" Margin="20,194,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextDecorations="Underline"/>
+
+        <TextBox x:Name="txtId" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,40,0" FontSize="16" Padding="5"
+                materialDesign:HintAssist.Hint="Código"
+                materialDesign:TextFieldAssist.HasClearButton="True"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                Width="80" IsEnabled="False" BorderBrush="#FFD3CFCF" Foreground="White"/>
+
+        <TextBox Grid.Row="0" HorizontalAlignment="Left" FontSize="16" Padding="5"
+                x:Name="txtNome"
+                materialDesign:HintAssist.Hint="Nome"
+                materialDesign:TextFieldAssist.HasClearButton="True"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                Width="704" Height="40" Margin="20,241,0,239" BorderBrush="White" Foreground="#2C2C2C"/>
+
+        <TextBox Grid.Row="0" HorizontalAlignment="Left" FontSize="16" Padding="5"
+                x:Name="txtMarca"
+                materialDesign:HintAssist.Hint="Marca"
+                materialDesign:TextFieldAssist.HasClearButton="True"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                Width="354" Height="40" Margin="20,291,0,189" BorderBrush="White" Foreground="#2C2C2C"/>
+
+        <TextBox Grid.Row="0" HorizontalAlignment="Right" FontSize="16" Padding="5"
+                x:Name="txtValor"
+                materialDesign:HintAssist.Hint="Valor"
+                materialDesign:TextFieldAssist.HasClearButton="True"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                Width="350" Height="40" Margin="0,291,12,189" BorderBrush="White" Foreground="#2C2C2C"/>
+
+        <TextBox Grid.Row="0" HorizontalAlignment="Left" FontSize="16" Padding="5"
+                x:Name="txtDescricao"
+                materialDesign:HintAssist.Hint="Descriçao"
+                materialDesign:TextFieldAssist.HasClearButton="True"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                Width="704" Height="40" Margin="20,341,0,139" BorderBrush="White" Foreground="#2C2C2C"/>
+
+        <Button x:Name="btnSalvar" Grid.Row="2" VerticalAlignment="Center"
+                Height="40" Width="230" Margin="0 0 0 60" Foreground="White" Background="#00A81F" BorderBrush="#2FF553"
+                Click="btnSalvar_Click">Salvar informações</Button>
+        
+        <Button x:Name="btnCancelar" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right"
+                Height="40" Width="230" Margin="0 0 20 60" Foreground="White" Background="#A80F2B" BorderBrush="#FFD1667A"
+                Click="btnCancelar_Click">Cancelar</Button>
+    </Grid>
+</Window>
