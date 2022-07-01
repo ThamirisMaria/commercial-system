@@ -20,7 +20,26 @@ namespace SistemaVendas.Models
 
         public void Delete(Produto t)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var query = conexao.Query();
+                query.CommandText = "DELETE FROM produto WHERE cod_prod = @id";
+
+                query.Parameters.AddWithValue("@id", t.Id);
+
+                var linhasAfetadas = query.ExecuteNonQuery();
+
+                if (linhasAfetadas == 0)
+                    throw new Exception("Registro não excluido. Verifique e tente novamente.");
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conexao.Close();
+            }
         }
 
         public Produto GetById(int id)
