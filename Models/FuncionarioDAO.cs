@@ -103,7 +103,46 @@ namespace SistemaVendas.Models
 
         public void Update(Funcionario t)
         {
-            throw new NotImplementedException();
+            try
+            {
+                long enderecoId = t.Endereco.Id;
+                var endDAO = new EnderecoDAO();
+
+                if (enderecoId > 0)
+                    endDAO.Update(t.Endereco);
+                else
+                    enderecoId = endDAO.Insert(t.Endereco);
+                var query = conexao.Query();
+                query.CommandText = "UPDATE funcionario SET nome_func = @nome, cpf_func = @cpf, rg_func = @rg, datanasc_func = @datanasc, telefone_func = @telefone, email_func = @email, celular_func = @celular, funcao_func = @funcao, salario_func = @salario, cod_sex_fk = @sexoId, cod_end_fk = @enderecoId " +
+                    "WHERE cod_func = @id";
+
+                query.Parameters.AddWithValue("@id", t.Id);
+
+                query.Parameters.AddWithValue("@nome", t.Nome);
+                query.Parameters.AddWithValue("@cpf", t.CPF);
+                query.Parameters.AddWithValue("@rg", t.RG);
+                query.Parameters.AddWithValue("@datanasc", t.DataNascimento.ToString("yyyy-MM-dd"));
+                query.Parameters.AddWithValue("@telefone", t.Telefone);
+                query.Parameters.AddWithValue("@email", t.Email);
+                query.Parameters.AddWithValue("@celular", t.Celular);
+                query.Parameters.AddWithValue("@funcao", t.Funcao);
+                query.Parameters.AddWithValue("@salario", t.Salario);
+                query.Parameters.AddWithValue("@sexoId", t.Sexo.Id);
+                query.Parameters.AddWithValue("@enderecoId", enderecoId);
+
+                var linhasAfetadas = query.ExecuteNonQuery();
+
+                if (linhasAfetadas == 0)
+                    throw new Exception("Atualização não efetuada. Verifique e tente novamente.");
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conexao.Close();
+            }
         }
     }
 }
