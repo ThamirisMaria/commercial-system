@@ -49,6 +49,8 @@ namespace SistemaVendas.Models
         {
             try
             {
+                var enderecoId = new EnderecoDAO().Insert(t.Endereco);
+
                 var query = conexao.Query();
                 query.CommandText = "INSERT INTO funcionario (nome_func, cpf_func, rg_func, datanasc_func, telefone_func, email_func, celular_func, funcao_func, salario_func, cod_sex_fk, cod_end_fk) " +
                     "VALUES (@nome, @cpf, @rg, @datanasc, @telefone, @email, @celular, @funcao, @salario, @sexoId, @enderecoId)";
@@ -63,7 +65,7 @@ namespace SistemaVendas.Models
                 query.Parameters.AddWithValue("@funcao", t.Funcao);
                 query.Parameters.AddWithValue("@salario", t.Salario);
                 query.Parameters.AddWithValue("@sexoId", t.Sexo.Id);
-                query.Parameters.AddWithValue("@enderecoId", t.Endereco.Id);
+                query.Parameters.AddWithValue("@enderecoId", enderecoId);
 
                 var linhasAfetadas = query.ExecuteNonQuery();
 
