@@ -93,7 +93,32 @@ namespace SistemaVendas.Models
 
         public void Update(Produto t)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var query = conexao.Query();
+                query.CommandText = "UPDATE produto SET nome_prod = @nome, descricao_prod = @descricao, marca_prod = @marca, valor_venda_prod = @valorVenda " +
+                    "WHERE cod_prod = @id";
+
+                query.Parameters.AddWithValue("@id", t.Id);
+
+                query.Parameters.AddWithValue("@nome", t.Nome);
+                query.Parameters.AddWithValue("@descricao", t.Descricao);
+                query.Parameters.AddWithValue("@marca", t.Marca);
+                query.Parameters.AddWithValue("@valorVenda", t.ValorVenda);
+
+                var linhasAfetadas = query.ExecuteNonQuery();
+
+                if (linhasAfetadas == 0)
+                    throw new Exception("Atualização não efetuada. Verifique e tente novamente.");
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conexao.Close();
+            }
         }
     }
 }
