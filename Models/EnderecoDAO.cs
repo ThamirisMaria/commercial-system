@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -38,19 +38,31 @@ namespace SistemaVendas.Models
             }
         }
 
-        public void Insert(Endereco t)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Endereco> List()
-        {
-            throw new NotImplementedException();
-        }
-
         public void Update(Endereco t)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var query = conexao.Query();
+                query.CommandText = "UPDATE endereco SET rua_end = @rua, numero_end = @numero, bairro_end = @bairro, " +
+                            "cidade_end = @cidade, estado_end = @estado WHERE cod_end = @id ";
+
+                query.Parameters.AddWithValue("@rua", t.Rua);
+                query.Parameters.AddWithValue("@numero", t.Numero);
+                query.Parameters.AddWithValue("@bairro", t.Bairro);
+                query.Parameters.AddWithValue("@cidade", t.Cidade);
+                query.Parameters.AddWithValue("@estado", t.Estado);
+
+                query.Parameters.AddWithValue("@id", t.Id);
+
+                var result = query.ExecuteNonQuery();
+
+                if (result == 0)
+                    throw new Exception("Erro ao atualizar o endereço. Verifique e tente novamente.");
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
     }
 }
