@@ -1,0 +1,133 @@
+﻿<Window x:Class="SistemaVendas.Views.EdicaoClienteWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SistemaVendas.Views"
+        mc:Ignorable="d"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="EdicaoClienteWindow" Width="754" Height="650" Background="#FF4A6B" WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="356"/>
+            <RowDefinition Height="184"/>
+            <RowDefinition Height="110"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Atualizar Cliente" FontSize="25" FontFamily="Roboto" Foreground="White" FontWeight="Bold"
+                   Height="29" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="276,18,258,0" Width="212"/>
+        <TextBlock Text="Dados Pessoais" FontSize="20" FontFamily="Roboto" Foreground="White" FontWeight="Bold"
+                   Height="23" Margin="20,82,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextDecorations="Underline"/>
+
+        <TextBox x:Name="txtId" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,18,40,0" FontSize="16" Padding="5"
+                materialDesign:HintAssist.Hint="Código"
+                materialDesign:TextFieldAssist.HasClearButton="True"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                Width="80" IsEnabled="False" BorderBrush="#FFD3CFCF" Foreground="White"/>
+
+        <TextBox Grid.Row="0" HorizontalAlignment="Left" FontSize="16" Padding="5"
+                x:Name="txtNome"
+                materialDesign:HintAssist.Hint="Nome completo"
+                materialDesign:TextFieldAssist.HasClearButton="True"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                Width="410" Height="40" Margin="20,130,0,176" BorderBrush="White" Foreground="#2C2C2C"/>
+
+        <DatePicker Grid.Row="0" HorizontalAlignment="Right" FontSize="16" Padding="5"
+                x:Name="dpDataNascimento"
+                materialDesign:HintAssist.Hint="Data de nascimento"
+                materialDesign:TextFieldAssist.HasClearButton="True"
+                Style="{StaticResource MaterialDesignOutlinedDatePicker}"
+                Width="286" Height="40" Margin="0,130,20,176" BorderBrush="White" Foreground="#2C2C2C"/>
+
+        <TextBox Grid.Row="0" HorizontalAlignment="Left" FontSize="16" Padding="5"
+                x:Name="txtRG"
+                materialDesign:HintAssist.Hint="RG"
+                materialDesign:TextFieldAssist.HasClearButton="True"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                Width="162" Height="40" Margin="20,180,0,126" BorderBrush="White" Foreground="#2C2C2C"/>
+
+        <TextBox Grid.Row="0" HorizontalAlignment="Center" FontSize="16" Padding="5"
+                x:Name="txtCPF"
+                materialDesign:HintAssist.Hint="CPF"
+                materialDesign:TextFieldAssist.HasClearButton="True"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                Width="236" Height="40" Margin="188,180,310,126" BorderBrush="White" Foreground="#2C2C2C"/>
+
+        <TextBox Grid.Row="0" HorizontalAlignment="Right" FontSize="16" Padding="5"
+                x:Name="txtTelefone"
+                materialDesign:HintAssist.Hint="Telefone"
+                materialDesign:TextFieldAssist.HasClearButton="True"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                Width="286" Height="40" Margin="0,180,20,126" BorderBrush="White" Foreground="#2C2C2C"/>
+
+        <TextBox Grid.Row="0" HorizontalAlignment="Left" FontSize="16" Padding="5"
+                x:Name="txtCelular"
+                materialDesign:HintAssist.Hint="Celular"
+                materialDesign:TextFieldAssist.HasClearButton="True"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                Width="346" Height="40" Margin="20,230,0,76" BorderBrush="White" Foreground="#2C2C2C"/>
+
+        <TextBox Grid.Row="0" HorizontalAlignment="Right" FontSize="16" Padding="5"
+                x:Name="txtEmail"
+                materialDesign:HintAssist.Hint="E-mail"
+                materialDesign:TextFieldAssist.HasClearButton="True"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                Width="350" Height="40" Margin="0,230,20,76" BorderBrush="White" Foreground="#2C2C2C"/>
+
+        <ComboBox Grid.Row="0" HorizontalAlignment="Left" FontSize="16" Padding="5"
+                x:Name="cbSexo"
+                materialDesign:HintAssist.Hint="Sexo"
+                materialDesign:TextFieldAssist.HasClearButton="True"
+                Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                DisplayMemberPath="Nome"
+                SelectedValuePath="Id"
+                Width="160" Height="40" Margin="20,280,0,30" BorderBrush="White" Foreground="#2C2C2C"/>
+
+        <TextBlock Text="Endereço" FontSize="20" FontFamily="Roboto" Foreground="White" FontWeight="Bold" Grid.Row="1"
+                   Height="23" Margin="20,18,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextDecorations="Underline"/>
+
+        <TextBox Grid.Row="1" HorizontalAlignment="Left" FontSize="16" Padding="5"
+                x:Name="txtEstado"
+                materialDesign:HintAssist.Hint="Estado"
+                materialDesign:TextFieldAssist.HasClearButton="True"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                Width="346" Height="40" Margin="20 -10 0 0" BorderBrush="White" Foreground="#2C2C2C"/>
+
+        <TextBox Grid.Row="1" HorizontalAlignment="Right" FontSize="16" Padding="5"
+                x:Name="txtCidade"
+                materialDesign:HintAssist.Hint="Cidade"
+                materialDesign:TextFieldAssist.HasClearButton="True"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                Width="350" Height="40" Margin="10 -10 20 0" BorderBrush="White" Foreground="#2C2C2C"/>
+
+        <TextBox Grid.Row="1" HorizontalAlignment="Left" FontSize="16" Padding="5"
+                x:Name="txtRua"
+                materialDesign:HintAssist.Hint="Rua"
+                materialDesign:TextFieldAssist.HasClearButton="True"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                Width="260" Height="40" Margin="20 85 0 0" BorderBrush="White" Foreground="#2C2C2C"/>
+
+        <TextBox Grid.Row="1" HorizontalAlignment="Center" FontSize="16" Padding="5"
+                x:Name="txtBairro"
+                materialDesign:HintAssist.Hint="Bairro"
+                materialDesign:TextFieldAssist.HasClearButton="True"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                Width="248" Height="40" Margin="65 85 -10 0" BorderBrush="White" Foreground="#2C2C2C"/>
+
+        <TextBox Grid.Row="1" HorizontalAlignment="Right" FontSize="16" Padding="5"
+                x:Name="txtNumero"
+                materialDesign:HintAssist.Hint="Número"
+                materialDesign:TextFieldAssist.HasClearButton="True"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                Width="185" Height="40" Margin="0 85 20 0" BorderBrush="White" Foreground="#2C2C2C"/>
+
+        <Button x:Name="btnSalvar" Grid.Row="3" VerticalAlignment="Center"
+                Height="40" Width="230" Margin="0 0 0 60" Foreground="White" Background="#00A81F" BorderBrush="#2FF553"
+                Click="btnSalvar_Click">Salvar informações</Button>
+
+        <Button x:Name="btnCancelar" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right"
+                Height="40" Width="230" Margin="0 0 20 60" Foreground="White" Background="#A80F2B" BorderBrush="#FFD1667A"
+                Click="btnCancelar_Click">Cancelar</Button>
+    </Grid>
+</Window>
