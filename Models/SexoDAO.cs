@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,7 +35,34 @@ namespace SistemaVendas.Models
 
         public List<Sexo> List()
         {
-            throw new NotImplementedException();
+            try
+            {
+                List<Sexo> list = new List<Sexo>();
+
+                var query = conexao.Query();
+                query.CommandText = "SELECT * FROM sexo";
+
+                MySqlDataReader reader = query.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    list.Add(new Sexo()
+                    {
+                        Id = reader.GetInt32("cod_sex"),
+                        Nome = reader.GetString("nome_sex")
+                    });
+                }
+
+                return list;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conexao.Close();
+            }
         }
 
         public void Update(Sexo t)
