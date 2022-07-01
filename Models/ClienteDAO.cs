@@ -19,7 +19,26 @@ namespace SistemaVendas.Models
 
         public void Delete(Cliente t)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var query = conexao.Query();
+                query.CommandText = "DELETE FROM cliente WHERE cod_cli = @id";
+
+                query.Parameters.AddWithValue("@id", t.Id);
+
+                var linhasAfetadas = query.ExecuteNonQuery();
+
+                if (linhasAfetadas == 0)
+                    throw new Exception("Registro não excluido. Verifique e tente novamente.");
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conexao.Close();
+            }
         }
 
         public Cliente GetById(int id)
