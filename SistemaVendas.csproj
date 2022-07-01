@@ -110,6 +110,9 @@
     <Compile Include="Views\ClienteWindow.xaml.cs">
       <DependentUpon>ClienteWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\EdicaoFuncionarioWindow.xaml.cs">
+      <DependentUpon>EdicaoFuncionarioWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\FuncionarioWindow.xaml.cs">
       <DependentUpon>FuncionarioWindow.xaml</DependentUpon>
     </Compile>
@@ -152,6 +155,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ClienteWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EdicaoFuncionarioWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
