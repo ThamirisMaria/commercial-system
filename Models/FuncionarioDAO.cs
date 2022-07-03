@@ -42,7 +42,45 @@ namespace SistemaVendas.Models
 
         public Funcionario GetById(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var query = conexao.Query();
+                query.CommandText = "SELECT * FROM funcionario LEFT JOIN sexo ON cod_sex = cod_sex_fk LEFT JOIN endereco ON cod_end = cod_end_fk WHERE cod_func = @id";
+
+                query.Parameters.AddWithValue("@id", id);
+
+                MySqlDataReader reader = query.ExecuteReader();
+
+                if (!reader.HasRows)
+                    throw new Exception("Nenhum registro foi encontrado!");
+
+                var funcionario = new Funcionario();
+
+                while (reader.Read())
+                {
+                    funcionario.Id = reader.GetInt32("cod_func");
+                    funcionario.Nome = reader.GetString("nome_func");
+                    funcionario.CPF = reader.GetString("cpf_func");
+                    funcionario.RG = reader.GetString("rg_func");
+                    funcionario.DataNascimento = reader.GetDateTime("datanasc_func");
+                    funcionario.Email = reader.GetString("email_func");
+                    funcionario.Celular = reader.GetString("celular_func");
+                    funcionario.Funcao = reader.GetString("funcao_func");
+                    funcionario.Salario = reader.GetDouble("salario_func");
+                    funcionario.Sexo = new Sexo() { Id = reader.GetInt32("cod_sex"), Nome = reader.GetString("nome_sex") };
+                    funcionario.Endereco = new Endereco() { Id = reader.GetInt32("cod_end"), Rua = reader.GetString("rua_end"), Numero = reader.GetInt32("numero_end"), Bairro = reader.GetString("bairro_end"), Cidade = reader.GetString("cidade_end"), Estado = reader.GetString("estado_end") };
+                }
+
+                return funcionario;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conexao.Query();
+            }
         }
 
         public void Insert(Funcionario t)
