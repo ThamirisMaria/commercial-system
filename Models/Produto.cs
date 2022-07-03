@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaVendas.Models
 {
-    class Produto
+    public class Produto
     {
         public int Id { get; set; }
 
@@ -17,5 +17,19 @@ namespace SistemaVendas.Models
         public string Marca { get; set; }
 
         public double ValorVenda { get; set; }
+
+        private bool _selected = false;
+
+        public bool IsSelected
+        {
+            get
+            {
+                return _selected;
+            }
+            set
+            {
+                _selected = value;
+            }
+        }
     }
 }
