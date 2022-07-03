@@ -1,4 +1,4 @@
-<Window x:Class="SistemaVendas.MainWindow"
+﻿<Window x:Class="SistemaVendas.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -24,42 +24,43 @@
             <Border Background="#2FF553" Width="192" BorderThickness="1" CornerRadius="5" Margin="0 0 0 30">
                 <Button x:Name="clientes_menu_btn" Height="41" Width="180" Background="#2FF553" BorderThickness="0"
                         Content="Clientes" Foreground="#FFF" FontSize="25" FontWeight="bold" FontFamily="Roboto"
-                        Cursor="Hand"/>
+                        Cursor="Hand" Click="clientes_menu_btn_Click"/>
             </Border>
             <Border Background="#2FF553" Width="192" BorderThickness="1" CornerRadius="5" Margin="0 0 0 30">
                 <Button x:Name="funcionarios_menu_btn" Height="41" Width="180" Background="#2FF553" BorderThickness="0"
-                        Content="Funcionários" Foreground="#FFF" FontSize="25" FontWeight="bold" FontFamily="Roboto"
-                        Cursor="Hand"/>
+                        Content="Funcionários" Foreground="#FFF" FontSize="25" FontWeight="bold" FontFamily="Roboto" Padding="8"
+                        Cursor="Hand" Click="funcionarios_menu_btn_Click"/>
             </Border>
             <Border Background="#2FF553" Width="192" BorderThickness="1" CornerRadius="5" Margin="0 0 0 30">
                 <Button x:Name="produtos_menu_btn" Height="41" Width="180" Background="#2FF553" BorderThickness="0"
                         Content="Produtos" Foreground="#FFF" FontSize="25" FontWeight="bold" FontFamily="Roboto"
-                        Cursor="Hand"/>
+                        Cursor="Hand" Click="produtos_menu_btn_Click"/>
             </Border>
             <Border Background="#2FF553" Width="192" BorderThickness="1" CornerRadius="5" Margin="0 0 0 30">
                 <Button x:Name="vendas_menu_btn" Height="41" Width="180" Background="#2FF553" BorderThickness="0"
                         Content="Vendas" Foreground="#FFF" FontSize="25" FontWeight="bold" FontFamily="Roboto"
-                        Cursor="Hand"/>
+                        Cursor="Hand" Click="vendas_menu_btn_Click"/>
             </Border>
-            <Border Background="#2FF553" Width="192" BorderThickness="1" CornerRadius="5">
-                <Button x:Name="usuarios_menu_btn" Height="41" Width="180" Background="#2FF553" BorderThickness="0"
-                        Content="Usuários" Foreground="#FFF" FontSize="25" FontWeight="bold" FontFamily="Roboto"
-                        Cursor="Hand"/>
+            <Border Background="#2FF553" Width="192" BorderThickness="1" CornerRadius="5" Margin="0 0 0 30">
+                <Button x:Name="dashboard_menu_btn" Height="41" Width="180" Background="#2FF553" BorderThickness="0"
+                        Content="Dashboard" Foreground="#FFF" FontSize="25" FontWeight="bold" FontFamily="Roboto"
+                        Cursor="Hand" Click="dashboard_menu_btn_Click"/>
             </Border>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="0" Height="160" HorizontalAlignment="Stretch">
             <Border Background="#00A81F" Height="40" Width="299" BorderThickness="1" CornerRadius="5" Margin="30 0 0 0">
-                <Button x:Name="cadastros_btn" Content="Cadastros" Width="278" Height="40" Background="#00A81F" BorderThickness="0"
+                <Button x:Name="cadastrar_btn" Content="Cadastrar" Width="278" Height="40" Background="#00A81F" BorderThickness="0"
                         Foreground="#FFF" FontSize="25" FontWeight="SemiBold" FontFamily="Roboto"
-                        Cursor="Hand"/>
+                        Cursor="Hand" Click="cadastrar_btn_Click"/>
             </Border>
             <Border Background="#00A81F" Height="40" Width="299" BorderThickness="1" CornerRadius="5" Margin="90 0 0 0">
-                <Button x:Name="vendas_btn" Content="Vendas" Width="278" Height="40" Background="#00A81F" BorderThickness="0"
+                <Button x:Name="vender_btn" Content="Vender" Width="278" Height="40" Background="#00A81F" BorderThickness="0"
                         Foreground="#FFF" FontSize="25" FontWeight="SemiBold" FontFamily="Roboto"
-                        Cursor="Hand"/>
+                        Cursor="Hand" Click="vender_btn_Click"/>
             </Border>
             
         </StackPanel>
-        <Image Source="Imagens/Logo-isolated.png" Grid.Column="2" Grid.RowSpan="2" Grid.Row="1"/>
+        <Image Source="Imagens/Logo-isolated.png" Grid.Column="1" Grid.RowSpan="2" Grid.Row="1"/>
+        <Frame x:Name="fr_Cadastrar" NavigationUIVisibility="Hidden" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Height="400" Width="400"/>
     </Grid>
 </Window>
