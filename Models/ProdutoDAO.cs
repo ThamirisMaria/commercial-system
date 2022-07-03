@@ -44,7 +44,39 @@ namespace SistemaVendas.Models
 
         public Produto GetById(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var query = conexao.Query();
+                query.CommandText = "SELECT * FROM produto WHERE cod_prod = @id";
+
+                query.Parameters.AddWithValue("@id", id);
+
+                MySqlDataReader reader = query.ExecuteReader();
+
+                if (!reader.HasRows)
+                    throw new Exception("Nenhum registro foi encontrado!");
+
+                var produto = new Produto();
+
+                while (reader.Read())
+                {
+                    produto.Id = reader.GetInt32("cod_prod");
+                    produto.Nome = reader.GetString("nome_prod");
+                    produto.Descricao = reader.GetString("descricao_prod");
+                    produto.Marca = reader.GetString("marca_prod");
+                    produto.ValorVenda = reader.GetDouble("valor_venda_prod");
+                }
+
+                return produto;
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conexao.Query();
+            }
         }
 
         public void Insert(Produto t)
