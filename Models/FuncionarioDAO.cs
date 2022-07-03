@@ -1,10 +1,11 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SistemaVendas.Interfaces;
 using SistemaVendas.Database;
+using MySql.Data.MySqlClient;
 
 namespace SistemaVendas.Models
 {
