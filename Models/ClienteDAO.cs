@@ -43,7 +43,43 @@ namespace SistemaVendas.Models
 
         public Cliente GetById(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var query = conexao.Query();
+                query.CommandText = "SELECT * FROM cliente LEFT JOIN sexo ON cod_sex = cod_sex_fk LEFT JOIN endereco ON cod_end = cod_end_fk WHERE cod_cli = @id";
+
+                query.Parameters.AddWithValue("@id", id);
+
+                MySqlDataReader reader = query.ExecuteReader();
+
+                if (!reader.HasRows)
+                    throw new Exception("Nenhum registro foi encontrado!");
+
+                var cliente = new Cliente();
+
+                while (reader.Read())
+                {
+                    cliente.Id = reader.GetInt32("cod_cli");
+                    cliente.Nome = reader.GetString("nome_cli");
+                    cliente.CPF = reader.GetString("cpf_cli");
+                    cliente.RG = reader.GetString("rg_cli");
+                    cliente.DataNascimento = reader.GetDateTime("datanasc_cli");
+                    cliente.Celular = reader.GetString("telefone_celular_cli");
+                    cliente.Email = reader.GetString("email_cli");
+                    cliente.Sexo = new Sexo() { Id = reader.GetInt32("cod_sex"), Nome = reader.GetString("nome_sex") };
+                    cliente.Endereco = new Endereco() { Id = reader.GetInt32("cod_end"), Rua = reader.GetString("rua_end"), Numero = reader.GetInt32("numero_end"), Bairro = reader.GetString("bairro_end"), Cidade = reader.GetString("cidade_end"), Estado = reader.GetString("estado_end") };
+                }
+
+                return cliente;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conexao.Query();
+            }
         }
 
         public void Insert(Cliente t)
