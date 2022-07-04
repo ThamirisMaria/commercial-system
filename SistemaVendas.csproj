@@ -148,6 +148,9 @@
     <Compile Include="Views\ListagemProdutoPage.xaml.cs">
       <DependentUpon>ListagemProdutoPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ListagemVendaPage.xaml.cs">
+      <DependentUpon>ListagemVendaPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ProdutoWindow.xaml.cs">
       <DependentUpon>ProdutoWindow.xaml</DependentUpon>
     </Compile>
@@ -220,6 +223,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ListagemProdutoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ListagemVendaPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
