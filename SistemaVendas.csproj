@@ -108,6 +108,7 @@
     </ApplicationDefinition>
     <Compile Include="Models\Venda.cs" />
     <Compile Include="Models\VendaDAO.cs" />
+    <Compile Include="Models\VendaItem.cs" />
     <Compile Include="Views\BuscaVendaItem.xaml.cs">
       <DependentUpon>BuscaVendaItem.xaml</DependentUpon>
     </Compile>
