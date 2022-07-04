@@ -1,0 +1,39 @@
+﻿<Window x:Class="SistemaVendas.Views.VendaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SistemaVendas.Views"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Vendas" Height="650" Width="984" Background="#FF4A6B"
+        WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="230"/>
+            <ColumnDefinition Width="754"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel x:Name="Menu" Width="230" VerticalAlignment="Stretch" Background="#2C2C2C"
+                    Grid.RowSpan="3" Margin="0,0,0,-20">
+            <Image Source="../Imagens/Logo.png" Height="222" Width="222"/>
+            <Border Background="#2FF553" Width="192" BorderThickness="1" CornerRadius="5" Margin="0 40 0 30">
+                <Button x:Name="listagem_menu_btn" Height="41" Width="180" Background="#2FF553" BorderThickness="0"
+                        Content="Listagem" Foreground="#FFF" FontSize="25" FontWeight="bold" FontFamily="Roboto"
+                        Cursor="Hand" Click="listagem_menu_btn_Click"/>
+            </Border>
+            <Border Background="#2FF553" Width="192" BorderThickness="1" CornerRadius="5" Margin="0 0 0 30">
+                <Button x:Name="cadastro_menu_btn" Height="41" Width="180" Background="#2FF553" BorderThickness="0"
+                        Content="Cadastro" Foreground="#FFF" FontSize="25" FontWeight="bold" FontFamily="Roboto"
+                        Cursor="Hand" Click="cadastro_menu_btn_Click"/>
+            </Border>
+            <Border Background="#F52F53" Width="192" BorderThickness="1" CornerRadius="5" Margin="0 140 0 0">
+                <Button x:Name="voltar_menu_btn" Height="41" Width="180" Background="#F52F53" BorderThickness="0"
+                        Content="Voltar" Foreground="#FFF" FontSize="25" FontWeight="bold" FontFamily="Roboto"
+                        Cursor="Hand" Click="voltar_menu_btn_Click"/>
+            </Border>
+        </StackPanel>
+        <!--<Image Source="../Imagens/Logo-isolated.png" Grid.Column="1" Grid.RowSpan="2" Grid.Row="1"/>-->
+        <Frame x:Name="fr_venda" Grid.Column="1"/>
+    </Grid>
+</Window>
