@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -72,8 +72,8 @@ namespace SistemaVendas
 
         private void dashboard_menu_btn_Click(object sender, RoutedEventArgs e)
         {
-            DashboardWindow dashboardWindow = new DashboardWindow();
-            dashboardWindow.ShowDialog();
+            //DashboardWindow dashboardWindow = new DashboardWindow();
+            //dashboardWindow.ShowDialog();
         }
     }
 }
