@@ -5,11 +5,12 @@
 <h2>Funcionalidade de Vendas</h2>
 
 ![image](https://github.com/ThamirisMaria/commercial-system/assets/73439911/7f6a044e-84d3-4a81-9ba6-07006a8071ed)
-![image](https://github.com/ThamirisMaria/commercial-system/assets/73439911/24d3beea-9510-460e-98e8-d63586e1bb5f)
 
-<h3> -> Pesquisando Produtos Pelo Nome</h3>
+<h3> -> Escolhendo Produtos</h3>
 
-![image](https://github.com/ThamirisMaria/commercial-system/assets/73439911/db7c9949-b610-43f1-9b06-b2c5eabae046)
+Escolhendo Produtos            |  <ul><li>Pesquisando produtos pelo nome</li><ul>
+:-------------------------:|:-------------------------:
+![image](https://github.com/ThamirisMaria/commercial-system/assets/73439911/24d3beea-9510-460e-98e8-d63586e1bb5f) | ![image](https://github.com/ThamirisMaria/commercial-system/assets/73439911/db7c9949-b610-43f1-9b06-b2c5eabae046)
 
 <h3> -> Alterando Quantidade de Produtos <h3>
   
